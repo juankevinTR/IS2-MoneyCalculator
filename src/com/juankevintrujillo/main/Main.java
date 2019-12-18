@@ -1,4 +1,4 @@
-package com.juankevintrujillo;
+package com.juankevintrujillo.main;
 
 /**
  *

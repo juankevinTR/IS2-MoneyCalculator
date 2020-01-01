@@ -49,13 +49,25 @@ public class Gui extends JFrame {
 
         amountTXT.addKeyListener(new KeyAdapter() {
             @Override
-            public void keyReleased(KeyEvent e) {
+            public void keyReleased(KeyEvent evt) {
+                if (!(Character.isDigit(evt.getKeyChar())) &&
+                        !(evt.getKeyChar() == KeyEvent.VK_BACK_SPACE) &&
+                        !(evt.getKeyChar() == KeyEvent.VK_ENTER) ||
+                        ((evt.getKeyChar() == 'º') ||
+                                (evt.getKeyChar() == 'ª') ||
+                                (evt.getKeyChar() == 'ç') ||
+                                (evt.getKeyChar() == 'Ç'))) {
+                    JOptionPane.showMessageDialog(null, "Only numbers here", "Error", JOptionPane.ERROR_MESSAGE);
+                    resetAll();
+                    evt.consume();
+                }
                 if (!amountTXT.getText().equals("")) {
-                    cleanButton.setEnabled(true);
-                    convertButton.setEnabled(true);
+                    enableOrNotButtons(true);
+                    if (evt.getKeyChar() == KeyEvent.VK_ENTER) {
+                        convertButton.doClick();
+                    }
                 } else {
-                    cleanButton.setEnabled(false);
-                    convertButton.setEnabled(true);
+                    enableOrNotButtons(false);
                 }
             }
         });
@@ -80,12 +92,24 @@ public class Gui extends JFrame {
 
         cleanButton.addActionListener(e -> {
             if (!amountTXT.getText().equals("") || !resultTXT.getText().equals("")) {
-                amountTXT.setText("");
-                resultTXT.setText("");
-                cleanButton.setEnabled(false);
-                convertButton.setEnabled(false);
+                resetAll();
             }
         });
+    }
 
+    private void enableOrNotButtons(boolean bool){
+        if (bool){
+            cleanButton.setEnabled(true);
+            convertButton.setEnabled(true);
+        }else {
+            cleanButton.setEnabled(false);
+            convertButton.setEnabled(false);
+        }
+    }
+
+    private void resetAll() {
+        amountTXT.setText("");
+        resultTXT.setText("");
+        enableOrNotButtons(false);
     }
 }

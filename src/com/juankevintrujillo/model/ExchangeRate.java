@@ -3,7 +3,6 @@ package com.juankevintrujillo.model;
 import java.util.Date;
 
 /**
- *
  * @author juankevintr
  */
 public class ExchangeRate {
@@ -15,8 +14,8 @@ public class ExchangeRate {
     public ExchangeRate(Currency from, Currency to, Date date, double rate) {
         this.from = from;
         this.to = to;
-	this.date = date;
-        this.rate = rate;   
+        this.date = date;
+        this.rate = rate;
     }
 
     public Currency getFrom() {
@@ -26,7 +25,7 @@ public class ExchangeRate {
     public Currency getTo() {
         return to;
     }
-    
+
     public Date getDate() {
         return date;
     }

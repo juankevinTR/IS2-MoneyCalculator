@@ -12,3 +12,9 @@ API_ACCESS_KEY=123456789...
 
 * [JSON in Java](https://github.com/stleary/JSON-java) - The Json library for java.
 * [Fixer](https://fixer.io) - Foreign exchange rates and currency conversion JSON API
+
+## Screenshots 📸
+
+![First image](/../screenshots/screenshots/1.png?raw=true)
+![Second image](/../screenshots/screenshots/2.png?raw=true)
+![Third image](/../screenshots/screenshots/3.png?raw=true)

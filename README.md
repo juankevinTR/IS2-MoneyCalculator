@@ -10,8 +10,8 @@ API_ACCESS_KEY=123456789...
 
 ## Build with 🛠️
 
-* [JSON in Java](https://github.com/stleary/JSON-java) - The Json library for java.
 * [Fixer](https://fixer.io) - Foreign exchange rates and currency conversion JSON API
+* [JSON in Java](https://github.com/stleary/JSON-java) - The Json library for java.
 
 ## Screenshots 📸
 

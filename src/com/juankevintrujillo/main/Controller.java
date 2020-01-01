@@ -27,8 +27,7 @@ public class Controller {
     private Money money;
     private ExchangeRate exchangeRate;
 
-
-    private final String API_ACCESS_KEY = "7b81b18577d4106caf27b74e9a325e08";
+    private final String API_ACCESS_KEY = System.getenv("API_ACCESS_KEY"); // Put your Access Key
 
     public Controller(String amount, String currencyTo) {
         this.currencyList = new CurrencyList();

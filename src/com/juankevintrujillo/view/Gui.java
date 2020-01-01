@@ -97,11 +97,11 @@ public class Gui extends JFrame {
         });
     }
 
-    private void enableOrNotButtons(boolean bool){
-        if (bool){
+    private void enableOrNotButtons(boolean bool) {
+        if (bool) {
             cleanButton.setEnabled(true);
             convertButton.setEnabled(true);
-        }else {
+        } else {
             cleanButton.setEnabled(false);
             convertButton.setEnabled(false);
         }

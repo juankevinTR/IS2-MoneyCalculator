@@ -21,30 +21,27 @@ import org.json.JSONObject;
  */
 public class Controller {
 
-    private final CurrencyList currencyList;
-    private Currency currencyFrom;
     private Currency currencyTo;
     private Money money;
-    private ExchangeRate exchangeRate;
 
     private final String API_ACCESS_KEY = System.getenv("API_ACCESS_KEY"); // Put your Access Key
 
     public Controller(String amount, String currencyTo) {
-        this.currencyList = new CurrencyList();
+        CurrencyList currencyList = new CurrencyList();
 
-        currencyFrom = currencyList.get("EUR");
+        Currency currencyFrom = currencyList.get("EUR");
         money = new Money(Double.parseDouble(amount), currencyFrom);
 
         this.currencyTo = currencyList.get(currencyTo);
     }
 
-    public String execute() throws Exception {
-        exchangeRate = getExchangeRate(money.getCurrency(), currencyTo);
+    public String execute() {
+        ExchangeRate exchangeRate = getExchangeRate(money.getCurrency(), currencyTo);
         DecimalFormat dotFormat = new DecimalFormat("#,##0.00000");
         return dotFormat.format(money.getAmount() * exchangeRate.getRate());
     }
 
-    private ExchangeRate getExchangeRate(Currency from, Currency to) throws Exception {
+    private ExchangeRate getExchangeRate(Currency from, Currency to) {
         String url = "http://data.fixer.io/api/latest?access_key="
                 + API_ACCESS_KEY
                 + "&symbols=" + to.getCode();
@@ -54,7 +51,7 @@ public class Controller {
         assert json != null;
 
         String rate = json.getJSONObject("rates").get(to.getCode()).toString();
-        Double value = Double.parseDouble(rate);
+        double value = Double.parseDouble(rate);
         return new ExchangeRate(from, to, new Date(), value);
     }
 

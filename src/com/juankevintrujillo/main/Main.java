@@ -3,7 +3,6 @@ package com.juankevintrujillo.main;
 import com.juankevintrujillo.view.Gui;
 
 import javax.swing.*;
-import java.io.IOException;
 
 /**
  * @author juankevintr

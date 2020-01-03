@@ -1,5 +1,7 @@
 # IS2-MoneyCalculator
 
+A program to convert an Euro amount to another currency available (GPB, PLN, USD)
+
 ## Prerequisites 📋
 
 You need to add an environment variable with your API_ACCESS_KEY of [fixer](https://fixer.io) account in your computer or in the Run configuration of your IDE.
